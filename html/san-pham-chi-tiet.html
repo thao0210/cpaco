@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Khu Mộ Đặc Biệt "Long Phụng" – CPHA CO.</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --white:#FFFFFF; --ivory:#F8F4EE; --cream:#F0E8D6;
+  --gold:#9A7530; --gold-lt:#C4A052; --gold-dk:#6E5218; --gold-dk2:#5C3E20;
+  --brown:#3A2810; --stone:#7A6A58; --mist:#A89880;
+  --rule:rgba(154,117,48,.24); --black:   #0F0903;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--white);color:var(--brown);overflow-x:hidden;}
+img{display:block;} a{text-decoration:none;color:inherit;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(248,244,238,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--rule);}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-brand img{height:42px;width:auto;object-fit:contain;}
+.nav-brand-txt{display:flex;flex-direction:column;line-height:1.25;padding-left:13px;border-left:1px solid var(--rule);}
+.nav-brand-txt b{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;letter-spacing:2px;color:var(--brown);}
+.nav-brand-txt small{font-size:9px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.nav-menu{display:flex;gap:34px;list-style:none;}
+.nav-menu a{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--stone);position:relative;transition:color .2s;}
+.nav-menu a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s;}
+.nav-menu a:hover,.nav-menu a.active{color:var(--gold);}
+.nav-menu a:hover::after,.nav-menu a.active::after{width:100%;}
+.nav-tel{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--gold-dk);border:1px solid var(--gold);padding:8px 20px;transition:background .2s,color .2s;}
+.nav-tel:hover{background:var(--gold-dk);color:var(--white);}
+
+/* HERO IMAGE */
+.detail-hero{
+  padding-top:70px;
+  height:520px;
+  position:relative;overflow:hidden;
+}
+.detail-hero img{width:100%;height:100%;object-fit:cover;}
+.detail-hero-veil{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(15,9,3,.75) 0%, rgba(15,9,3,.2) 50%, transparent 100%);
+}
+.detail-hero-body{
+  position:absolute;bottom:48px;left:64px;right:64px;z-index:2;
+  display:flex;align-items:flex-end;justify-content:space-between;
+}
+.breadcrumb{display:flex;align-items:center;gap:8px;margin-bottom:16px;}
+.breadcrumb a,.breadcrumb span{font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);transition:color .2s;}
+.breadcrumb a:hover{color:var(--gold-lt);}
+.breadcrumb .sep{color:rgba(255,255,255,.25);}
+.breadcrumb .current{color:var(--gold-lt);}
+.detail-hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:300;color:var(--white);line-height:1.2;}
+.detail-hero-badge{
+  flex-shrink:0;
+  background:rgba(154,117,48,.2);
+  border:1px solid var(--gold-lt);
+  padding:12px 24px;
+  text-align:center;
+}
+.detail-hero-badge .badge-label{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold-lt);margin-bottom:4px;}
+.detail-hero-badge .badge-val{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:var(--white);}
+
+/* MAIN LAYOUT */
+.detail-layout{
+  display:grid;
+  grid-template-columns:1fr 360px;
+  gap:0;
+  align-items:start;
+  padding:0 64px;
+  max-width:1400px;
+  margin:0 auto;
+}
+
+/* CONTENT SIDE */
+.detail-content{padding:64px 64px 64px 0;border-right:1px solid var(--rule);}
+
+.section-block{margin-bottom:52px;}
+.section-block:last-child{margin-bottom:0;}
+
+.sec-eyebrow{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.sec-eyebrow::before{content:'';width:18px;height:1px;background:var(--gold);}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--brown);line-height:1.3;margin-bottom:18px;}
+.sec-body{font-size:13.5px;font-weight:300;line-height:1.9;color:var(--stone);}
+.sec-body p{margin-bottom:14px;}
+.sec-body p:last-child{margin-bottom:0;}
+
+/* Feature list */
+.feature-list{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:20px;}
+.feature-list li{display:flex;align-items:flex-start;gap:14px;font-size:13px;font-weight:300;line-height:1.7;color:var(--stone);}
+.feature-list li::before{content:'';flex-shrink:0;margin-top:9px;width:20px;height:1px;background:var(--gold);}
+
+/* Direction grid */
+.direction-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;}
+.dir-item{background:var(--ivory);padding:16px 18px;border-left:2px solid var(--gold);}
+.dir-label{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.dir-name{font-size:13px;font-weight:400;color:var(--brown);}
+.dir-desc{font-size:11px;font-weight:300;color:var(--stone);margin-top:2px;}
+
+/* Area options */
+.area-options{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap;}
+.area-opt{padding:14px 20px;border:1px solid var(--rule);background:var(--ivory);text-align:center;transition:border-color .2s,background .2s;cursor:pointer;}
+.area-opt:hover,.area-opt.active{border-color:var(--gold);background:var(--cream);}
+.area-opt .ao-size{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--gold-dk);}
+.area-opt .ao-label{font-size:9px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--mist);margin-top:2px;}
+
+/* Gallery thumbs */
+.detail-thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:24px;}
+.thumb{overflow:hidden;height:140px;cursor:pointer;border:1px solid rgba(154,117,48,.12);}
+.thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.thumb:hover img{transform:scale(1.08);}
+
+/* FAQ */
+.faq-list{margin-top:20px;display:flex;flex-direction:column;gap:2px;}
+.faq-item{border:1px solid var(--rule);overflow:hidden;}
+.faq-q{
+  padding:18px 20px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  cursor:pointer;
+  font-size:13px;font-weight:500;color:var(--brown);
+  background:var(--white);transition:background .2s;
+}
+.faq-q:hover{background:var(--ivory);}
+.faq-q.open{background:var(--ivory);color:var(--gold-dk);}
+.faq-icon{flex-shrink:0;width:20px;height:20px;border:1px solid var(--rule);display:flex;align-items:center;justify-content:center;transition:transform .3s;font-size:14px;color:var(--gold);}
+.faq-q.open .faq-icon{transform:rotate(45deg);}
+.faq-a{display:none;padding:0 20px 18px;font-size:13px;font-weight:300;line-height:1.8;color:var(--stone);background:var(--ivory);}
+.faq-a.open{display:block;}
+
+/* SIDEBAR */
+.detail-sidebar{padding:48px 0 48px 48px;position:sticky;top:90px;}
+.sidebar-card{background:var(--ivory);border:1px solid var(--rule);padding:32px;margin-bottom:20px;}
+.sidebar-card h4{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--brown);margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--rule);}
+.sidebar-field{display:flex;flex-direction:column;gap:5px;margin-bottom:14px;}
+.sidebar-field label{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.sidebar-field input,.sidebar-field select,.sidebar-field textarea{background:var(--white);border:1px solid var(--rule);padding:11px 13px;font-family:'Montserrat',sans-serif;font-size:12.5px;color:var(--brown);outline:none;width:100%;transition:border-color .2s;appearance:none;}
+.sidebar-field input:focus,.sidebar-field select:focus,.sidebar-field textarea:focus{border-color:var(--gold);}
+.sidebar-field textarea{height:80px;resize:none;}
+.sidebar-submit{width:100%;padding:13px;background:var(--gold-dk);color:var(--white);border:none;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;letter-spacing:3px;text-transform:uppercase;transition:background .25s;margin-top:4px;}
+.sidebar-submit:hover{background:var(--brown);}
+.sidebar-hotline{background:var(--gold-dk2);padding:24px 32px;text-align:center;}
+.sidebar-hotline p{font-size:10px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px;}
+.sidebar-hotline a{font-family:'Playfair Display',serif;font-size:26px;font-style:italic;color:var(--gold-lt);display:block;transition:color .2s;}
+.sidebar-hotline a:hover{color:var(--white);}
+.sidebar-hours{font-size:11px;font-weight:300;color:rgba(255,255,255,.35);margin-top:6px;}
+
+.spec-list{list-style:none;display:flex;flex-direction:column;gap:0;}
+.spec-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--rule);font-size:12.5px;}
+.spec-row:last-child{border-bottom:none;}
+.spec-key{font-weight:500;color:var(--stone);}
+.spec-val{font-weight:300;color:var(--brown);text-align:right;}
+
+/* RELATED */
+.related{background:var(--ivory);padding:80px 64px;border-top:1px solid var(--rule);}
+.related-hd{margin-bottom:40px;}
+.related-eyebrow{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold-dk2);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.related-eyebrow::before{content:'';width:18px;height:1px;background:var(--gold);}
+.related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule);border:1px solid var(--rule);}
+.rel-card{background:var(--white);display:block;color:inherit;transition:background .25s;}
+.rel-card:hover{background:var(--ivory);}
+.rel-img{height:180px;overflow:hidden;}
+.rel-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.rel-card:hover .rel-img img{transform:scale(1.06);}
+.rel-body{padding:20px 22px 18px;}
+.rel-cat{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.rel-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:400;color:var(--brown);margin-bottom:8px;}
+.rel-more{font-size:9.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:6px;transition:gap .2s;}
+.rel-card:hover .rel-more{gap:12px;}
+.rel-more::after{content:'→';}
+
+/* FOOTER */
+footer{background:var(--black);padding:40px 64px 28px;}
+.ft-top{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(192,155,82,.12);}
+.ftbrand{display:flex;align-items:center;gap:12px;}
+.ftbrand img{height:34px;}
+.ftbrand b{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;letter-spacing:2px;color:var(--gold-lt);}
+.ft-contact-links{margin-left:auto;display:flex;gap:24px;}
+.ft-contact-links a{font-size:12px;font-weight:300;color:rgba(240,228,200,.4);transition:color .2s;}
+.ft-contact-links a:hover{color:var(--gold-lt);}
+.ft-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.ft-bot span{font-size:11px;color:rgba(240,228,200,.4);}
+.ft-bot a{color:var(--gold-lt);}
+
+/* LIGHTBOX */
+.lb-overlay{position:fixed;inset:0;z-index:1000;background:rgba(15,9,3,.93);opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s;display:flex;align-items:center;justify-content:center;}
+.lb-overlay.open{opacity:1;visibility:visible;}
+.lb-img-wrap img{max-width:90vw;max-height:85vh;object-fit:contain;transition:opacity .25s;}
+.lb-img-wrap img.fade{opacity:0;}
+.lb-close{position:fixed;top:24px;right:32px;width:44px;height:44px;background:none;border:1px solid rgba(255,255,255,.2);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color .2s;}
+.lb-close:hover{border-color:var(--gold-lt);}
+.lb-close svg{width:18px;height:18px;stroke:#fff;}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.15);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;}
+.lb-nav:hover{background:rgba(154,117,48,.3);}
+.lb-nav.prev{left:20px;} .lb-nav.next{right:20px;}
+.lb-nav svg{width:20px;height:20px;stroke:#fff;}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+@media(max-width:1024px){
+  .detail-layout{grid-template-columns:1fr;}
+  .detail-content{padding:48px 0;border-right:none;border-bottom:1px solid var(--rule);}
+  .detail-sidebar{padding:40px 0;position:static;}
+  .detail-layout,.related{padding-left:20px;padding-right:20px;}
+}
+@media(max-width:768px){
+  nav{padding:0 20px;} .nav-menu,.nav-tel{display:none;}
+  .detail-hero-body{left:24px;right:24px;flex-direction:column;align-items:flex-start;gap:16px;}
+  .direction-grid{grid-template-columns:1fr;}
+  .related-grid{grid-template-columns:1fr;}
+  .detail-thumbs{grid-template-columns:repeat(2,1fr);}
+  footer{padding:40px 20px 28px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="./images/logo.png" alt="CPHA CO."/>
+    <div class="nav-brand-txt"><b>CPHA CO.</b><small>Hoa Viên Nghĩa Trang Bình Dương</small></div>
+  </a>
+  <ul class="nav-menu">
+    <li><a href="index.html#about">Giới thiệu</a></li>
+    <li><a href="san-pham.html" class="active">Sản phẩm</a></li>
+    <li><a href="dich-vu.html">Dịch vụ</a></li>
+    <li><a href="index.html#gallery">Hình ảnh</a></li>
+    <li><a href="index.html#contact">Liên hệ</a></li>
+  </ul>
+  <a href="tel:0908918181" class="nav-tel">0908 918 181</a>
+</nav>
+
+<!-- HERO -->
+<div class="detail-hero">
+  <img src="https://cphaco.vn/wp-content/uploads/2025/07/khu-long-phung-4.jpg" alt="Khu Mộ Long Phụng"/>
+  <div class="detail-hero-veil"></div>
+  <div class="detail-hero-body">
+    <div>
+      <div class="breadcrumb">
+        <a href="index.html">Trang chủ</a>
+        <span class="sep">/</span>
+        <a href="san-pham.html">Sản phẩm</a>
+        <span class="sep">/</span>
+        <span class="current">Khu Mộ Long Phụng</span>
+      </div>
+      <h1>Khu Mộ Đặc Biệt<br>"Long Phụng" – B3.4</h1>
+    </div>
+    <div class="detail-hero-badge">
+      <div class="badge-label">Phân khu</div>
+      <div class="badge-val">B3.4 — Mộ Đơn</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="detail-layout">
+
+  <!-- CONTENT -->
+  <div class="detail-content">
+
+    <div class="section-block reveal">
+      <div class="sec-eyebrow">Tổng quan</div>
+      <div class="sec-title">Hội tụ linh khí — Kết nối cội nguồn — Gieo phúc vĩnh hằng</div>
+      <div class="sec-body">
+        <p>Khu mộ Long Phụng là một trong những khu an táng đặc biệt tại Hoa Viên Nghĩa Trang Bình Dương, nổi bật với vị trí đắc địa, tiếp cận "tú khí địa linh" — nơi hội tụ đầy đủ các yếu tố phong thủy tốt lành, lý tưởng để làm nơi an nghỉ cho ông bà, cha mẹ.</p>
+        <p>Tọa lạc trên trục đường Minh Đạo, cách cổng chính Vĩnh Hằng khoảng 1km — đường nhựa thẳng tắp, thuận tiện cho việc thăm viếng quanh năm.</p>
+      </div>
+    </div>
+
+    <div class="section-block reveal">
+      <div class="sec-eyebrow">Phong thủy</div>
+      <div class="sec-title">Tâm điểm linh khí vũ trụ — 8 hướng hội tụ</div>
+      <div class="direction-grid">
+        <div class="dir-item"><div class="dir-label">Hướng Bắc (Khảm)</div><div class="dir-name">Cây Đa Hồn Việt</div></div>
+        <div class="dir-item"><div class="dir-label">Hướng Nam (Ly)</div><div class="dir-name">Vĩnh Hằng Đài</div></div>
+        <div class="dir-item"><div class="dir-label">Hướng Đông (Chấn)</div><div class="dir-name">Chùa Thiên Phước</div></div>
+        <div class="dir-item"><div class="dir-label">Hướng Tây (Đoài)</div><div class="dir-name">Đồi Tâm Linh</div></div>
+        <div class="dir-item"><div class="dir-label">Hướng Tây Bắc (Kiền)</div><div class="dir-name">Tượng Thiên Thủ Thiên Nhãn</div></div>
+        <div class="dir-item"><div class="dir-label">Hướng Tây Nam (Khôn)</div><div class="dir-name">Linh Hoa Tuệ Đàn</div></div>
+        <div class="dir-item"><div class="dir-label">Hướng Đông Bắc (Cấn)</div><div class="dir-name">Đài Hóa Thân Hoàn Vũ</div></div>
+        <div class="dir-item"><div class="dir-label">Hướng Đông Nam (Tốn)</div><div class="dir-name">Khu Tưởng Niệm MVNAH</div></div>
+      </div>
+    </div>
+
+    <div class="section-block reveal">
+      <div class="sec-eyebrow">Ưu điểm nổi bật</div>
+      <div class="sec-title">Lý do chọn Khu Long Phụng</div>
+      <ul class="feature-list">
+        <li>Vị trí tọa sơn hướng thủy, cảnh quan xanh mát, hòa hợp âm dương ngũ hành</li>
+        <li>Kề bên các công trình tâm linh trọng yếu: Cây Đa Hồn Việt, Linh Hoa Tuệ Đàn, Chùa Thiên Phước</li>
+        <li>Đường nhựa thẳng tắp, xe hơi và xe tang vào tận nơi dễ dàng</li>
+        <li>Dịch vụ chăm sóc mộ phần định kỳ, bảo vệ 24/7, chiếu sáng ban đêm</li>
+        <li>Con cháu học hành đỗ đạt, gia đạo hòa thuận, phúc thọ song toàn</li>
+        <li>Pháp lý rõ ràng, thời hạn sử dụng lâu dài theo quy định Nhà nước</li>
+      </ul>
+    </div>
+
+    <div class="section-block reveal">
+      <div class="sec-eyebrow">Diện tích</div>
+      <div class="sec-title">Lựa chọn diện tích phù hợp</div>
+      <div class="area-options">
+        <div class="area-opt active">
+          <div class="ao-size">5,73m²</div>
+          <div class="ao-label">Mộ đơn tiêu chuẩn</div>
+        </div>
+        <div class="area-opt">
+          <div class="ao-size">13,2m²</div>
+          <div class="ao-label">Mộ đơn cao cấp</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-block reveal">
+      <div class="sec-eyebrow">Hình ảnh thực tế</div>
+      <div class="sec-title">Không gian Khu Long Phụng</div>
+      <div class="detail-thumbs">
+        <div class="thumb" data-src="https://cphaco.vn/wp-content/uploads/2025/07/khu-long-phung-4.jpg"><img src="https://cphaco.vn/wp-content/uploads/2025/07/khu-long-phung-4.jpg" alt="" loading="lazy"/></div>
+        <div class="thumb" data-src="https://cphaco.vn/wp-content/uploads/2025/07/khu-long-phung-2.jpg"><img src="https://cphaco.vn/wp-content/uploads/2025/07/khu-long-phung-2.jpg" alt="" loading="lazy"/></div>
+        <div class="thumb" data-src="https://cphaco.vn/wp-content/uploads/2025/07/khu-long-phung-1-scaled.jpg"><img src="https://cphaco.vn/wp-content/uploads/2025/07/khu-long-phung-1-scaled.jpg" alt="" loading="lazy"/></div>
+      </div>
+    </div>
+
+    <div class="section-block reveal">
+      <div class="sec-eyebrow">Thủ tục & Pháp lý</div>
+      <div class="sec-title">Quy trình đơn giản, minh bạch</div>
+      <ul class="feature-list">
+        <li>Hồ sơ: CCCD của người đứng tên hợp đồng (và người được ủy quyền nếu có)</li>
+        <li>Đặt cọc và thanh toán tối thiểu 30% giá trị hợp đồng để giữ vị trí</li>
+        <li>Thanh toán tiền mặt hoặc chuyển khoản ngân hàng</li>
+        <li>Nhận hợp đồng sau khi thanh toán đủ — thời hạn sử dụng lâu dài</li>
+      </ul>
+    </div>
+
+    <div class="section-block reveal">
+      <div class="sec-eyebrow">Câu hỏi thường gặp</div>
+      <div class="sec-title">Giải đáp thắc mắc</div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q"><span>Thời gian sử dụng và pháp lý như thế nào?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a">Thời gian sử dụng huyệt mộ lâu dài theo quy định của Nhà nước. Hoa Viên có diện tích hơn 300ha, pháp lý rõ ràng minh bạch, có hợp đồng sử dụng đất huyệt mộ đầy đủ căn cứ pháp luật và sẽ không có quy hoạch về sau.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span>Phí chăm sóc tính từ khi nào?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a">Phí chăm sóc tính từ khi bàn giao huyệt mộ hoặc khi phát sinh hợp đồng dịch vụ liên quan. Bao gồm: dọn vệ sinh, lau chùi, thắp hương 2 lần/tháng và vào các dịp lễ Tết, bảo vệ 24/7, chiếu sáng ban đêm.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span>Có hỗ trợ xem phong thủy không?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a">Hoa Viên có đội ngũ chuyên gia phong thủy sẵn sàng hỗ trợ — gia đình cung cấp thông tin tuổi tác, mệnh trạch để được tư vấn chọn hướng phù hợp nhất.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span>Khi có hữu sự cần làm gì?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a">Khi có hữu sự, gia đình liên hệ hotline 0908 918 181 (24/7) hoặc đến chi nhánh gần nhất, mang theo hợp đồng nhượng quyền sử dụng đất huyệt mộ để làm thủ tục an táng nhanh chóng.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q"><span>Có chính sách giảm giá không?</span><div class="faq-icon">+</div></div>
+          <div class="faq-a">Đối với khách hàng mua từ phần mộ thứ 2 trở đi với cùng chủ thể, Hoa Viên áp dụng chính sách ưu đãi. Vui lòng liên hệ trực tiếp để nhận thông tin mới nhất.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="detail-sidebar">
+    <div class="sidebar-hotline">
+      <p>Tư vấn 24/7</p>
+      <a href="tel:0908918181">0908 918 181</a>
+      <div class="sidebar-hours">Thứ 2 – Chủ nhật: 7:00 – 17:30</div>
+    </div>
+
+    <div style="height:20px"></div>
+
+    <div class="sidebar-card">
+      <h4>Đăng ký tư vấn</h4>
+      <div class="sidebar-field">
+        <label>Họ và tên *</label>
+        <input type="text" placeholder="Nguyễn Văn A"/>
+      </div>
+      <div class="sidebar-field">
+        <label>Điện thoại *</label>
+        <input type="tel" placeholder="0909 xxx xxx"/>
+      </div>
+      <div class="sidebar-field">
+        <label>Sản phẩm quan tâm</label>
+        <select>
+          <option>Khu Mộ Long Phụng – B3.4</option>
+          <option>Khu mộ gia tộc</option>
+          <option>Mộ đôi / Song thân</option>
+          <option>Lăng mộ cao cấp</option>
+        </select>
+      </div>
+      <div class="sidebar-field">
+        <label>Ghi chú</label>
+        <textarea placeholder="Yêu cầu của quý vị..."></textarea>
+      </div>
+      <button class="sidebar-submit" id="sidebarBtn">Gửi yêu cầu</button>
+    </div>
+
+    <div class="sidebar-card">
+      <h4>Thông số kỹ thuật</h4>
+      <ul class="spec-list">
+        <li class="spec-row"><span class="spec-key">Phân khu</span><span class="spec-val">B3.4 Long Phụng</span></li>
+        <li class="spec-row"><span class="spec-key">Loại mộ</span><span class="spec-val">Mộ đơn</span></li>
+        <li class="spec-row"><span class="spec-key">Diện tích</span><span class="spec-val">5,73m² / 13,2m²</span></li>
+        <li class="spec-row"><span class="spec-key">Pháp lý</span><span class="spec-val">Lâu dài</span></li>
+        <li class="spec-row"><span class="spec-key">Cách cổng chính</span><span class="spec-val">~1km</span></li>
+        <li class="spec-row"><span class="spec-key">Đường vào</span><span class="spec-val">Nhựa, xe hơi</span></li>
+        <li class="spec-row"><span class="spec-key">Bảo vệ</span><span class="spec-val">24/7</span></li>
+        <li class="spec-row"><span class="spec-key">Chiếu sáng</span><span class="spec-val">Ban đêm</span></li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<!-- RELATED -->
+<div class="related">
+  <div class="related-hd reveal">
+    <div class="related-eyebrow">Sản phẩm liên quan</div>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:var(--brown);">Có thể bạn quan tâm</h2>
+  </div>
+  <div class="related-grid">
+    <a href="san-pham-chi-tiet.html" class="rel-card reveal">
+      <div class="rel-img"><img src="https://cphaco.vn/wp-content/uploads/2025/09/mo-gia-toc.jpg" alt="" loading="lazy"/></div>
+      <div class="rel-body">
+        <div class="rel-cat">Mộ gia tộc</div>
+        <div class="rel-name">Khu Gia Tộc Trúc Lâm Bích Thủy</div>
+        <span class="rel-more">Xem chi tiết</span>
+      </div>
+    </a>
+    <a href="san-pham-chi-tiet.html" class="rel-card reveal">
+      <div class="rel-img"><img src="https://cphaco.vn/wp-content/uploads/2018/10/img-63.jpg" alt="" loading="lazy"/></div>
+      <div class="rel-body">
+        <div class="rel-cat">Mộ đơn</div>
+        <div class="rel-name">Khu Mộ Cao Cấp Cội Nguồn</div>
+        <span class="rel-more">Xem chi tiết</span>
+      </div>
+    </a>
+    <a href="san-pham-chi-tiet.html" class="rel-card reveal">
+      <div class="rel-img"><img src="https://cphaco.vn/wp-content/uploads/2018/10/img-60.jpg" alt="" loading="lazy"/></div>
+      <div class="rel-body">
+        <div class="rel-cat">Mộ đôi</div>
+        <div class="rel-name">Khu Mộ Song Thân</div>
+        <span class="rel-more">Xem chi tiết</span>
+      </div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="ft-top">
+    <div class="ftbrand"><img src="./images/logo.png" alt="CPHA CO."/><b>CPHA CO.</b></div>
+    <div class="ft-contact-links">
+      <a href="tel:0908918181">0908 918 181</a>
+      <a href="mailto:info@cphaco.vn">info@cphaco.vn</a>
+      <a href="index.html#contact">Liên hệ</a>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2025 CPHA CO. — Công ty CP Đầu tư Xây dựng Chánh Phú Hòa</span>
+    <span><a href="https://cphaco.vn">cphaco.vn</a></span>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lb-overlay" id="lbOverlay">
+  <button class="lb-close" id="lbClose"><svg fill="none" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+  <div class="lb-img-wrap"><img id="lbImg" src="" alt=""/></div>
+</div>
+
+<script>
+// FAQ
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const a = q.nextElementSibling;
+    const isOpen = q.classList.contains('open');
+    document.querySelectorAll('.faq-q').forEach(x => { x.classList.remove('open'); x.nextElementSibling.classList.remove('open'); });
+    if(!isOpen){ q.classList.add('open'); a.classList.add('open'); }
+  });
+});
+
+// Area options
+document.querySelectorAll('.area-opt').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('.area-opt').forEach(o => o.classList.remove('active'));
+    opt.classList.add('active');
+  });
+});
+
+// Thumbs lightbox
+const lbOverlay = document.getElementById('lbOverlay');
+const lbImg = document.getElementById('lbImg');
+document.querySelectorAll('.thumb').forEach(t => {
+  t.addEventListener('click', () => {
+    lbImg.src = t.dataset.src;
+    lbOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+});
+document.getElementById('lbClose').addEventListener('click', () => { lbOverlay.classList.remove('open'); document.body.style.overflow = ''; });
+lbOverlay.addEventListener('click', e => { if(e.target === lbOverlay){ lbOverlay.classList.remove('open'); document.body.style.overflow = ''; } });
+document.addEventListener('keydown', e => { if(e.key === 'Escape'){ lbOverlay.classList.remove('open'); document.body.style.overflow = ''; } });
+
+// Form
+document.getElementById('sidebarBtn').addEventListener('click', function(){
+  this.textContent = '✓ Đã gửi — Chúng tôi sẽ liên hệ sớm!';
+  this.style.background = '#4A7A4E';
+});
+
+// Reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.06 });
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 2 * 0.12) + 's';
+  io.observe(el);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dịch Vụ – CPHA CO. Hoa Viên Nghĩa Trang Bình Dương</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --white:#FFFFFF; --ivory:#F8F4EE; --cream:#F0E8D6;
+  --gold:#9A7530; --gold-lt:#C4A052; --gold-dk:#6E5218; --gold-dk2:#5C3E20;
+  --brown:#3A2810; --stone:#7A6A58; --mist:#A89880;
+  --rule:rgba(154,117,48,.24);
+  --black:   #0F0903;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--white);color:var(--brown);overflow-x:hidden;}
+img{display:block;} a{text-decoration:none;color:inherit;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(248,244,238,.96);backdrop-filter:blur(18px);border-bottom:1px solid var(--rule);}
+.nav-brand{display:flex;align-items:center;gap:13px;}
+.nav-brand img{height:42px;width:auto;object-fit:contain;}
+.nav-brand-txt{display:flex;flex-direction:column;line-height:1.25;padding-left:13px;border-left:1px solid var(--rule);}
+.nav-brand-txt b{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;letter-spacing:2px;color:var(--brown);}
+.nav-brand-txt small{font-size:9px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+.nav-menu{display:flex;gap:34px;list-style:none;}
+.nav-menu a{font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--stone);position:relative;transition:color .2s;}
+.nav-menu a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s;}
+.nav-menu a:hover,.nav-menu a.active{color:var(--gold);}
+.nav-menu a:hover::after,.nav-menu a.active::after{width:100%;}
+.nav-tel{font-family:'Playfair Display',serif;font-size:18px;font-style:italic;color:var(--gold-dk);border:1px solid var(--gold);padding:8px 20px;transition:background .2s,color .2s;}
+.nav-tel:hover{background:var(--gold-dk);color:var(--white);}
+
+.page-title-bar{
+  padding:100px 64px 10px;
+  /* background:var(--ivory); */
+}
+.page-title-bar h1{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3vw,40px);font-weight:300;color:var(--brown);}
+.page-title-bar p {font-size:13px;font-weight:300;line-height:1.8;color:var(--stone);max-width:640px;margin-top:12px;}
+/* MAIN SERVICE CARDS — full layout */
+.svc-section{padding:50px 64px;}
+.svc-eyebrow{font-size:10px;font-weight:bold;letter-spacing:4px;text-transform:uppercase;color:var(--gold-dk2);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.svc-eyebrow::before{content:'';width:22px;height:1px;background:var(--gold);}
+.svc-intro-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,3.5vw,42px);font-weight:300;color:var(--brown);margin-bottom:12px;}
+.svc-intro-body{font-size:13px;font-weight:300;line-height:1.9;color:var(--stone);max-width:640px;margin-bottom:56px;}
+
+/* Large featured service */
+.svc-featured{
+  display:grid;grid-template-columns:1fr 1fr;
+  border:1px solid var(--rule);
+  margin-bottom:2px;
+  cursor:pointer;
+  transition:background .25s;
+}
+.svc-featured:hover{background:var(--ivory);}
+.svc-featured:nth-child(even){direction:rtl;}
+.svc-featured:nth-child(even) > *{direction:ltr;}
+.svc-feat-img{overflow:hidden;height:340px;}
+.svc-feat-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s;}
+.svc-featured:hover .svc-feat-img img{transform:scale(1.05);}
+.svc-feat-body{
+  padding:52px 48px;
+  display:flex;flex-direction:column;justify-content:center;
+  background:var(--white);transition:background .25s;
+}
+.svc-featured:hover .svc-feat-body{background:var(--ivory);}
+.svc-feat-num{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:rgba(154,117,48,.12);line-height:1;margin-bottom:-10px;}
+.svc-feat-cat{font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.svc-feat-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--brown);line-height:1.25;margin-bottom:16px;}
+.svc-feat-desc{font-size:13px;font-weight:300;line-height:1.85;color:var(--stone);margin-bottom:24px;}
+.svc-feat-list{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:28px;}
+.svc-feat-list li{display:flex;align-items:flex-start;gap:12px;font-size:12.5px;font-weight:300;color:var(--stone);}
+.svc-feat-list li::before{content:'';flex-shrink:0;margin-top:8px;width:14px;height:1px;background:var(--gold);}
+.svc-feat-cta{font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:8px;transition:gap .2s;}
+.svc-featured:hover .svc-feat-cta{gap:14px;}
+.svc-feat-cta::after{content:'→';}
+
+/* Small service grid */
+.svc-small-title{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--brown);margin-bottom:28px;margin-top:64px;}
+.svc-small-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--rule);border:1px solid var(--rule);}
+.svc-small-card{
+  background:var(--white);padding:36px 32px 30px;
+  cursor:pointer;transition:background .25s,transform .2s;
+  position:relative;overflow:hidden;
+}
+.svc-small-card:hover{background:var(--ivory);transform:translateY(-2px);}
+.svc-small-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:0;background:var(--gold);transition:height .3s;}
+.svc-small-card:hover::after{height:2px;}
+.svc-small-ico{width:40px;height:40px;color:var(--gold);margin-bottom:18px;}
+.svc-small-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;color:var(--brown);margin-bottom:10px;}
+.svc-small-desc{font-size:13px;font-weight:300;line-height:1.8;color:var(--stone);margin-bottom:18px;}
+.svc-small-more{font-size:9.5px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);display:inline-flex;align-items:center;gap:6px;transition:gap .2s;}
+.svc-small-card:hover .svc-small-more{gap:12px;}
+.svc-small-more::after{content:'→';}
+
+/* PROCESS SECTION */
+.process-section{background:var(--ivory);padding:80px 64px;border-top:1px solid var(--rule);}
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:48px;position:relative;}
+.process-steps::before{content:'';position:absolute;top:28px;left:10%;right:10%;height:1px;background:var(--rule);}
+.process-step{text-align:center;padding:0 16px;}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--white);border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative;z-index:1;}
+.step-num span{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:300;color:var(--gold-dk);}
+.step-name{font-size:12px;font-weight:600;color:var(--brown);margin-bottom:8px;}
+.step-desc{font-size:11px;font-weight:300;line-height:1.7;color:var(--mist);}
+
+/* QUOTE */
+.quote-band{background:var(--gold-dk2);padding:64px;text-align:center;position:relative;overflow:hidden;}
+.quote-band::before{content:'"';position:absolute;top:-80px;left:50%;transform:translateX(-50%);font-family:'Cormorant Garamond',serif;font-size:300px;font-weight:300;color:rgba(255,255,255,.05);line-height:1;pointer-events:none;}
+.qtext{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.5vw,30px);font-style:italic;font-weight:300;color:rgba(255,255,255,.9);max-width:700px;margin:0 auto 16px;line-height:1.65;position:relative;z-index:1;}
+.qby{font-size:10px;font-weight:400;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.4);position:relative;z-index:1;}
+
+/* CTA */
+.cta-band{background:var(--cream);padding:64px;display:flex;align-items:center;justify-content:space-between;gap:40px;border-top:1px solid var(--rule);}
+.cta-band-txt h3{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:var(--brown);margin-bottom:8px;}
+.cta-band-txt p{font-size:13px;font-weight:300;color:var(--stone);}
+.cta-band-btn{flex-shrink:0;padding:14px 36px;background:var(--gold-dk);color:var(--white);font-size:10.5px;font-weight:600;letter-spacing:3px;text-transform:uppercase;transition:background .25s;white-space:nowrap;}
+.cta-band-btn:hover{background:var(--brown);}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:500;background:rgba(15,9,3,.7);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;display:flex;align-items:center;justify-content:center;padding:24px;}
+.modal-overlay.open{opacity:1;visibility:visible;}
+.modal-box{background:var(--white);max-width:780px;width:100%;max-height:85vh;overflow-y:auto;position:relative;}
+.modal-hero{height:280px;overflow:hidden;position:relative;}
+.modal-hero img{width:100%;height:100%;object-fit:cover;}
+.modal-hero-veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,9,3,.6) 0%,transparent 60%);}
+.modal-hero-title{position:absolute;bottom:24px;left:32px;right:32px;}
+.modal-hero-title .mc{font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold-lt);margin-bottom:6px;}
+.modal-hero-title h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--white);}
+.modal-body{padding:36px 40px;}
+.modal-body p{font-size:13.5px;font-weight:300;line-height:1.9;color:var(--stone);margin-bottom:14px;}
+.modal-body p:last-child{margin-bottom:0;}
+.modal-list{list-style:none;margin:16px 0 20px;display:flex;flex-direction:column;gap:10px;}
+.modal-list li{display:flex;align-items:flex-start;gap:12px;font-size:13px;font-weight:300;color:var(--stone);line-height:1.7;}
+.modal-list li::before{content:'';flex-shrink:0;margin-top:8px;width:14px;height:1px;background:var(--gold);}
+.modal-close{position:absolute;top:16px;right:16px;width:40px;height:40px;background:rgba(0,0,0,.3);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s;z-index:2;}
+.modal-close:hover{background:rgba(0,0,0,.5);}
+.modal-close svg{width:16px;height:16px;stroke:#fff;}
+.modal-footer{padding:24px 40px 32px;border-top:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.modal-tel{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--gold-dk);}
+.modal-cta{padding:12px 28px;background:var(--gold-dk);color:var(--white);font-size:10px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;border:none;cursor:pointer;transition:background .2s;}
+.modal-cta:hover{background:var(--brown);}
+
+/* FOOTER */
+footer{background:var(--black);padding:40px 64px 28px;}
+.ft-top{display:flex;align-items:center;gap:16px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(192,155,82,.12);}
+.ftbrand{display:flex;align-items:center;gap:12px;}
+.ftbrand img{height:34px;}
+.ftbrand b{font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:400;letter-spacing:2px;color:var(--gold-lt);}
+.ft-contact-links{margin-left:auto;display:flex;gap:24px;}
+.ft-contact-links a{font-size:12px;font-weight:300;color:rgba(254, 250, 240, 0.45);transition:color .2s;}
+.ft-contact-links a:hover{color:var(--gold-lt);}
+.ft-bot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.ft-bot span{font-size:11px;color:rgba(240,228,200,.4);}
+.ft-bot a{color:var(--gold-lt);}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.in{opacity:1;transform:none;}
+
+@media(max-width:1024px){.svc-featured{grid-template-columns:1fr;}.svc-featured:nth-child(even){direction:ltr;}.svc-feat-img{height:240px;}.svc-small-grid{grid-template-columns:repeat(2,1fr);}.process-steps{grid-template-columns:repeat(3,1fr);gap:32px;}.process-steps::before{display:none;}.svc-stats{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:768px){nav{padding:0 20px;}.nav-menu,.nav-tel{display:none;}.page-hero-inner,.svc-section,.process-section,.cta-band,footer{padding-left:20px;padding-right:20px;}.svc-small-grid{grid-template-columns:1fr;}.process-steps{grid-template-columns:repeat(2,1fr);}.cta-band{flex-direction:column;text-align:center;}.modal-box{max-height:92vh;}.modal-body,.modal-footer{padding-left:20px;padding-right:20px;}.quote-band{padding:48px 20px;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-brand">
+    <img src="./images/logo.png" alt="CPHA CO."/>
+    <div class="nav-brand-txt"><b>CPHA CO.</b><small>Hoa Viên Nghĩa Trang Bình Dương</small></div>
+  </a>
+  <ul class="nav-menu">
+    <li><a href="index.html#about">Giới thiệu</a></li>
+    <li><a href="san-pham.html">Sản phẩm</a></li>
+    <li><a href="dich-vu.html" class="active">Dịch vụ</a></li>
+    <li><a href="index.html#gallery">Hình ảnh</a></li>
+    <li><a href="index.html#contact">Liên hệ</a></li>
+  </ul>
+  <a href="tel:0908918181" class="nav-tel">0908 918 181</a>
+</nav>
+
+<div class="page-title-bar">
+  <h1>Dịch vụ Toàn diện & Tận tâm</h1>
+  <p>Đồng hành cùng quý gia đình trong mọi thời khắc — từ tang lễ, hỏa táng, an táng đến chăm sóc mộ phần lâu dài. Tất cả trong một mái nhà.</p>
+</div>
+
+<!-- MAIN SERVICES -->
+<section class="svc-section">
+
+  <!-- Tang lễ -->
+  <div class="svc-featured reveal" data-modal="tang-le">
+    <div class="svc-feat-img">
+      <img src="https://cphaco.vn/wp-content/uploads/2025/08/trang-chu-2.jpg" alt="Dịch vụ Tang Lễ" loading="lazy"/>
+    </div>
+    <div class="svc-feat-body">
+      <div class="svc-feat-num">01</div>
+      <div class="svc-feat-cat">Dịch vụ chính</div>
+      <div class="svc-feat-title">Dịch vụ Tang Lễ Trọn Gói</div>
+      <div class="svc-feat-desc">Tổ chức tang lễ trang trọng, chu đáo từ A đến Z — đồng hành và chia sẻ gánh nặng trong thời khắc khó khăn nhất của gia đình.</div>
+      <ul class="svc-feat-list">
+        <li>Tư vấn và hỗ trợ thủ tục pháp lý tang lễ</li>
+        <li>Trang trí linh đường, chuẩn bị lễ tang trang nghiêm</li>
+        <li>Xe tang và đội ngũ lễ tân chuyên nghiệp</li>
+        <li>Hỗ trợ tổ chức lễ truy điệu, cầu siêu</li>
+      </ul>
+      <span class="svc-feat-cta">Xem chi tiết</span>
+    </div>
+  </div>
+
+  <!-- Hỏa táng -->
+  <div class="svc-featured reveal" data-modal="hoa-tang">
+    <div class="svc-feat-img">
+      <img src="https://cphaco.vn/wp-content/uploads/2018/10/img-63.jpg" alt="Dịch vụ Hỏa Táng" loading="lazy"/>
+    </div>
+    <div class="svc-feat-body">
+      <div class="svc-feat-num">02</div>
+      <div class="svc-feat-cat">Dịch vụ chính</div>
+      <div class="svc-feat-title">Dịch vụ Hỏa Táng</div>
+      <div class="svc-feat-desc">Hỏa táng là hình thức an táng hiện đại được nhiều gia đình lựa chọn — văn minh, tiết kiệm và thân thiện với môi trường.</div>
+      <ul class="svc-feat-list">
+        <li>Lò hỏa táng hiện đại, đảm bảo vệ sinh môi trường</li>
+        <li>Quy trình trang trọng, đúng nghi lễ tôn giáo và phong tục</li>
+        <li>Hỗ trợ thủ tục và giấy tờ pháp lý sau hỏa táng</li>
+        <li>Bình tro cốt cao cấp, đa dạng mẫu mã</li>
+      </ul>
+      <span class="svc-feat-cta">Xem chi tiết</span>
+    </div>
+  </div>
+
+  <!-- Lưu trữ tro cốt -->
+  <div class="svc-featured reveal" data-modal="luu-tro">
+    <div class="svc-feat-img">
+      <img src="https://cphaco.vn/wp-content/uploads/2025/08/trang-chu-3.jpg" alt="Lưu trữ Tro Cốt" loading="lazy"/>
+    </div>
+    <div class="svc-feat-body">
+      <div class="svc-feat-num">03</div>
+      <div class="svc-feat-cat">Dịch vụ chính</div>
+      <div class="svc-feat-title">Lưu Trữ & Bảo Quản Tro Cốt</div>
+      <div class="svc-feat-desc">Nhà lưu niệm tro cốt cao cấp tại Chùa Thiên Phước — không gian trang nghiêm, ấm cúng, thuận tiện cho gia đình hương khói.</div>
+      <ul class="svc-feat-list">
+        <li>Nhà lưu niệm trong khuôn viên chùa Thiên Phước</li>
+        <li>Ô cốt riêng biệt, khóa cá nhân bảo mật</li>
+        <li>Không gian yên tĩnh, có thể đến thắp hương mọi lúc</li>
+        <li>Dịch vụ thắp hương định kỳ theo yêu cầu</li>
+      </ul>
+      <span class="svc-feat-cta">Xem chi tiết</span>
+    </div>
+  </div>
+
+  <!-- Additional services -->
+  <div class="svc-small-title reveal">Dịch vụ bổ sung</div>
+  <div class="svc-small-grid">
+
+    <div class="svc-small-card reveal" data-modal="cham-soc">
+      <svg class="svc-small-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M10 32V22M20 32V10M30 32V18"/><path d="M6 36h28"/></svg>
+      <div class="svc-small-name">Chăm Sóc Mộ Phần</div>
+      <div class="svc-small-desc">Dịch vụ vệ sinh, chăm sóc mộ phần định kỳ — không gian an nghỉ luôn sạch sẽ, tươm tất dù gia đình ở xa.</div>
+      <span class="svc-small-more">Xem chi tiết</span>
+    </div>
+
+    <div class="svc-small-card reveal" data-modal="phong-thuy">
+      <svg class="svc-small-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M20 4l2 6h7l-5.5 4 2 6L20 17l-5.5 3 2-6L11 10h7z"/><circle cx="20" cy="28" r="7"/></svg>
+      <div class="svc-small-name">Tư Vấn Phong Thủy</div>
+      <div class="svc-small-desc">Chuyên gia phong thủy tư vấn chọn hướng, vị trí mộ — đảm bảo vượng khí, phúc lộc cho thế hệ mai sau.</div>
+      <span class="svc-small-more">Xem chi tiết</span>
+    </div>
+
+    <div class="svc-small-card reveal" data-modal="xay-mo">
+      <svg class="svc-small-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M7 32h26M14 32V22l6-8 6 8v10"/><rect x="17" y="24" width="6" height="8"/></svg>
+      <div class="svc-small-name">Xây Dựng Mộ Phần</div>
+      <div class="svc-small-desc">Tư vấn thiết kế và thi công mộ phần, khuôn viên theo yêu cầu — đảm bảo thẩm mỹ, bền vững và đúng phong thủy.</div>
+      <span class="svc-small-more">Xem chi tiết</span>
+    </div>
+
+    <div class="svc-small-card reveal" data-modal="dua-ruoc">
+      <svg class="svc-small-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="5" y="18" width="30" height="12" rx="2"/><path d="M10 18v-4a2 2 0 012-2h16a2 2 0 012 2v4"/><circle cx="12" cy="32" r="3"/><circle cx="28" cy="32" r="3"/></svg>
+      <div class="svc-small-name">Đưa Rước Thăm Viếng</div>
+      <div class="svc-small-desc">Chương trình xe đưa rước tham quan và thăm viếng mộ phần hàng tuần — miễn phí, lịch cố định tiện lợi.</div>
+      <span class="svc-small-more">Xem chi tiết</span>
+    </div>
+
+    <div class="svc-small-card reveal" data-modal="cung-le">
+      <svg class="svc-small-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M20 8v24M8 20h24"/><circle cx="20" cy="20" r="4"/><circle cx="20" cy="20" r="12"/></svg>
+      <div class="svc-small-name">Cúng Thay Lễ Thanh Minh</div>
+      <div class="svc-small-desc">Dịch vụ cúng thay nhân dịp Thanh Minh, Vu Lan — đội ngũ chuyên nghiệp thực hiện nghi lễ thành tâm thay gia đình.</div>
+      <span class="svc-small-more">Xem chi tiết</span>
+    </div>
+
+    <div class="svc-small-card reveal" data-modal="nha-tang-le">
+      <svg class="svc-small-ico" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M5 36h30M8 36V20l12-12 12 12v16"/><rect x="15" y="26" width="10" height="10"/></svg>
+      <div class="svc-small-name">Nhà Tang Lễ</div>
+      <div class="svc-small-desc">Nhà tang lễ trong khuôn viên Hoa Viên — không gian trang nghiêm, rộng rãi, đầy đủ tiện nghi cho lễ tang.</div>
+      <span class="svc-small-more">Xem chi tiết</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-section">
+  <div class="reveal">
+    <div class="svc-eyebrow">Quy trình phục vụ</div>
+    <h2 class="svc-intro-title">5 bước đồng hành cùng gia đình</h2>
+  </div>
+  <div class="process-steps reveal">
+    <div class="process-step">
+      <div class="step-num"><span>01</span></div>
+      <div class="step-name">Liên hệ tư vấn</div>
+      <div class="step-desc">Gọi hotline 24/7 hoặc đến trực tiếp — đội ngũ tư vấn luôn sẵn sàng</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num"><span>02</span></div>
+      <div class="step-name">Khảo sát nhu cầu</div>
+      <div class="step-desc">Lắng nghe và tư vấn giải pháp phù hợp nhất với gia đình</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num"><span>03</span></div>
+      <div class="step-name">Lập phương án</div>
+      <div class="step-desc">Báo giá chi tiết, minh bạch — không phát sinh chi phí ẩn</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num"><span>04</span></div>
+      <div class="step-name">Thực hiện dịch vụ</div>
+      <div class="step-desc">Triển khai chuyên nghiệp, trang trọng, đúng yêu cầu và nghi lễ</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num"><span>05</span></div>
+      <div class="step-name">Chăm sóc sau dịch vụ</div>
+      <div class="step-desc">Đồng hành lâu dài — chăm sóc mộ phần, hỗ trợ gia đình mãi về sau</div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<div class="quote-band reveal">
+  <p class="qtext">"Mang đến trải nghiệm nhân văn, an yên và trọn vẹn cho mỗi gia đình trong những thời khắc thiêng liêng nhất của đời người."</p>
+  <p class="qby">— Sứ mệnh CPHA CO.</p>
+</div>
+
+<!-- CTA -->
+<div class="cta-band reveal">
+  <div class="cta-band-txt">
+    <h3>Cần hỗ trợ ngay?</h3>
+    <p>Đội ngũ tư vấn tận tâm sẵn sàng 24/7 — miễn phí, không ràng buộc.</p>
+  </div>
+  <a href="index.html#contact" class="cta-band-btn">Tư vấn miễn phí</a>
+</div>
+
+<footer>
+  <div class="ft-top">
+    <div class="ftbrand"><img src="./images/logo.png" alt="CPHA CO."/><b>CPHA CO.</b></div>
+    <div class="ft-contact-links">
+      <a href="tel:0908918181">0908 918 181</a>
+      <a href="mailto:info@cphaco.vn">info@cphaco.vn</a>
+      <a href="index.html#contact">Liên hệ</a>
+    </div>
+  </div>
+  <div class="ft-bot">
+    <span>© 2025 CPHA CO. — Công ty CP Đầu tư Xây dựng Chánh Phú Hòa</span>
+    <span><a href="https://cphaco.vn">cphaco.vn</a></span>
+  </div>
+</footer>
+
+<!-- SERVICE DETAIL MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" id="modalClose"><svg fill="none" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+    <div class="modal-hero">
+      <img id="modalImg" src="" alt=""/>
+      <div class="modal-hero-veil"></div>
+      <div class="modal-hero-title">
+        <div class="mc" id="modalCat"></div>
+        <h3 id="modalTitle"></h3>
+      </div>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer">
+      <div><div style="font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--mist);margin-bottom:4px;">Hotline 24/7</div><a href="tel:0908918181" class="modal-tel">0908 918 181</a></div>
+      <button class="modal-cta" onclick="window.location.href='index.html#contact'">Đăng ký tư vấn</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const modalData = {
+  'tang-le': {
+    cat: 'Dịch vụ chính',
+    title: 'Dịch vụ Tang Lễ Trọn Gói',
+    img: 'https://cphaco.vn/wp-content/uploads/2025/08/trang-chu-2.jpg',
+    body: `<p>Dịch vụ tang lễ chuyên nghiệp của Hoa Viên Bình Dương mang đến một buổi lễ trang trọng, ấm cúng và đầy ý nghĩa — giúp gia đình nhẹ lòng hơn trong những thời khắc khó khăn nhất.</p>
+    <p><strong style="font-weight:500;color:var(--brown)">Gói dịch vụ bao gồm:</strong></p>
+    <ul class="modal-list">
+      <li>Tư vấn thủ tục pháp lý, giấy tờ tang lễ từ A đến Z</li>
+      <li>Chuẩn bị linh đường, trang trí hoa và vật phẩm tang lễ</li>
+      <li>Đội ngũ lễ tân chuyên nghiệp, đồng phục trang trọng</li>
+      <li>Xe tang cao cấp, đội kèn trống theo yêu cầu</li>
+      <li>Hỗ trợ tổ chức lễ cầu siêu, truy điệu theo tôn giáo</li>
+      <li>Đưa linh cữu đến nơi an táng trong khuôn viên Hoa Viên</li>
+    </ul>
+    <p>Liên hệ hotline 24/7 để được hỗ trợ ngay khi cần thiết.</p>`
+  },
+  'hoa-tang': {
+    cat: 'Dịch vụ chính',
+    title: 'Dịch vụ Hỏa Táng',
+    img: 'https://cphaco.vn/wp-content/uploads/2018/10/img-63.jpg',
+    body: `<p>Hỏa táng là hình thức an táng văn minh, tiết kiệm và được nhiều gia đình lựa chọn. Hoa Viên Bình Dương cung cấp dịch vụ hỏa táng với trang thiết bị hiện đại, quy trình trang trọng và đúng nghi lễ.</p>
+    <p><strong style="font-weight:500;color:var(--brown)">Quy trình hỏa táng:</strong></p>
+    <ul class="modal-list">
+      <li>Tiếp nhận và tư vấn thủ tục đăng ký hỏa táng</li>
+      <li>Lò hỏa táng hiện đại, vận hành sạch sẽ, an toàn</li>
+      <li>Lễ hỏa táng trang nghiêm, phù hợp tôn giáo và phong tục</li>
+      <li>Thu hài cốt và đóng gói bình tro cốt cẩn thận</li>
+      <li>Bình tro cốt cao cấp, nhiều mẫu mã theo yêu cầu</li>
+      <li>Hỗ trợ thủ tục giấy tờ sau hỏa táng</li>
+    </ul>`
+  },
+  'luu-tro': {
+    cat: 'Dịch vụ chính',
+    title: 'Lưu Trữ & Bảo Quản Tro Cốt',
+    img: 'https://cphaco.vn/wp-content/uploads/2025/08/trang-chu-3.jpg',
+    body: `<p>Nhà lưu niệm tro cốt cao cấp tại Chùa Thiên Phước — trung tâm tâm linh trong khuôn viên Hoa Viên — là nơi lưu giữ tro cốt trang nghiêm, ấm cúng, thuận tiện cho gia đình hương khói bất kỳ lúc nào.</p>
+    <ul class="modal-list">
+      <li>Ô cốt riêng biệt, khóa cá nhân bảo mật tuyệt đối</li>
+      <li>Không gian chùa yên tĩnh, thanh tịnh, phù hợp tâm linh</li>
+      <li>Mở cửa hàng ngày, gia đình có thể đến thăm viếng tự do</li>
+      <li>Dịch vụ thắp hương, cúng bái theo yêu cầu định kỳ</li>
+      <li>Kết hợp cả lưu tro và an táng tại cùng một khuôn viên</li>
+    </ul>`
+  },
+  'cham-soc': {
+    cat: 'Dịch vụ bổ sung',
+    title: 'Chăm Sóc Mộ Phần Định Kỳ',
+    img: 'https://cphaco.vn/wp-content/uploads/2022/12/DJI_0628-HDR-1.jpg',
+    body: `<p>Không phải gia đình nào cũng có thể thường xuyên đến thăm viếng và chăm sóc mộ phần — đặc biệt với những gia đình ở xa. Dịch vụ chăm sóc mộ phần của Hoa Viên đảm bảo mộ người thân luôn sạch sẽ, tươm tất.</p>
+    <ul class="modal-list">
+      <li>Dọn vệ sinh mộ phần và lối đi xung quanh</li>
+      <li>Lau chùi, đánh bóng đá và các chi tiết trang trí</li>
+      <li>Thắp hương, cúng lễ 2 lần/tháng và vào các dịp lễ Tết</li>
+      <li>Gửi ảnh chụp mộ phần sau mỗi lần chăm sóc cho gia đình</li>
+      <li>Bảo vệ an ninh 24/7 toàn khu vực</li>
+      <li>Hệ thống chiếu sáng ban đêm đảm bảo an toàn</li>
+    </ul>`
+  },
+  'phong-thuy': {
+    cat: 'Dịch vụ bổ sung',
+    title: 'Tư Vấn Phong Thủy',
+    img: 'https://cphaco.vn/wp-content/uploads/2025/07/khu-long-phung-2.jpg',
+    body: `<p>Đội ngũ chuyên gia phong thủy giàu kinh nghiệm của Hoa Viên sẽ tư vấn chọn vị trí, hướng mộ phù hợp với tuổi mệnh, giúp đảm bảo vượng khí và phúc lộc cho gia đình hậu thế.</p>
+    <ul class="modal-list">
+      <li>Phân tích mệnh trạch, tuổi tác của gia chủ và người quá cố</li>
+      <li>Chọn hướng mộ phù hợp theo Bát Quái và Ngũ Hành</li>
+      <li>Tư vấn thời điểm an táng tốt lành</li>
+      <li>Hướng dẫn thiết kế khuôn viên mộ đúng phong thủy</li>
+      <li>Tư vấn cả khu mộ gia tộc theo địa lý cổ Kham Dư</li>
+    </ul>`
+  },
+  'xay-mo': {
+    cat: 'Dịch vụ bổ sung',
+    title: 'Xây Dựng Mộ Phần & Khuôn Viên',
+    img: 'https://cphaco.vn/wp-content/uploads/2025/09/mo-gia-toc.jpg',
+    body: `<p>Hoa Viên cung cấp dịch vụ tư vấn thiết kế và thi công mộ phần, khuôn viên theo yêu cầu riêng của từng gia đình — từ mộ đơn giản đến lăng mộ, khu mộ gia tộc quy mô.</p>
+    <ul class="modal-list">
+      <li>Tư vấn thiết kế 3D trước khi thi công</li>
+      <li>Vật liệu đá hoa cương, đá cẩm thạch cao cấp nhập khẩu</li>
+      <li>Thi công bởi đội ngũ thợ lành nghề, bảo hành chất lượng</li>
+      <li>Thiết kế theo phong cách: cổ điển, hiện đại, truyền thống</li>
+      <li>Trồng cỏ, cây cảnh xung quanh khuôn viên</li>
+    </ul>`
+  },
+  'dua-ruoc': {
+    cat: 'Dịch vụ bổ sung',
+    title: 'Đưa Rước Thăm Viếng Hàng Tuần',
+    img: 'https://cphaco.vn/wp-content/uploads/2018/10/img-60.jpg',
+    body: `<p>Hoa Viên tổ chức chương trình xe đưa rước miễn phí hàng tuần từ TP.HCM đến Hoa Viên Nghĩa Trang Bình Dương — tạo điều kiện thuận tiện cho gia đình thăm viếng người thân định kỳ.</p>
+    <ul class="modal-list">
+      <li>Xe khởi hành từ TP.HCM mỗi cuối tuần (lịch cố định)</li>
+      <li>Miễn phí cho khách hàng và thân nhân đã an táng tại Hoa Viên</li>
+      <li>Xe điều hòa, thoải mái, có hướng dẫn viên đồng hành</li>
+      <li>Đón trả tại nhiều điểm trong nội thành TP.HCM</li>
+      <li>Đăng ký trước qua hotline để đặt chỗ</li>
+    </ul>`
+  },
+  'cung-le': {
+    cat: 'Dịch vụ bổ sung',
+    title: 'Cúng Thay Lễ Thanh Minh & Vu Lan',
+    img: 'https://cphaco.vn/wp-content/uploads/2018/10/img-11.jpg',
+    body: `<p>Dịch vụ cúng thay nhân dịp Thanh Minh và Vu Lan — dành cho những gia đình ở xa hoặc bận rộn không thể đến thăm viếng trực tiếp. Đội ngũ chuyên nghiệp của Hoa Viên thực hiện nghi lễ thành tâm và trọn vẹn thay gia đình.</p>
+    <ul class="modal-list">
+      <li>Chuẩn bị đầy đủ lễ vật theo phong tục và tôn giáo</li>
+      <li>Thực hiện nghi lễ đúng ngày, đúng giờ theo dương lịch và âm lịch</li>
+      <li>Quay clip và chụp ảnh gửi về cho gia đình</li>
+      <li>Báo cáo chi tiết sau mỗi buổi lễ</li>
+      <li>Đăng ký trước theo mùa lễ Thanh Minh và Vu Lan</li>
+    </ul>`
+  },
+  'nha-tang-le': {
+    cat: 'Cơ sở vật chất',
+    title: 'Nhà Tang Lễ Hoa Viên',
+    img: 'https://cphaco.vn/wp-content/uploads/2025/08/trang-chu-3.jpg',
+    body: `<p>Nhà tang lễ trong khuôn viên Hoa Viên Nghĩa Trang Bình Dương là không gian trang nghiêm, rộng rãi và đầy đủ tiện nghi — phục vụ gia đình tổ chức lễ tang ngay tại Hoa Viên.</p>
+    <ul class="modal-list">
+      <li>Sảnh lễ rộng lớn, sức chứa hàng trăm người</li>
+      <li>Hệ thống điều hòa, âm thanh, ánh sáng hiện đại</li>
+      <li>Phòng lưu linh riêng biệt, trang nghiêm</li>
+      <li>Bãi đỗ xe rộng rãi cho đoàn xe tang</li>
+      <li>Gần kề khu an táng — tiện lợi cho toàn bộ lễ tang</li>
+    </ul>`
+  }
+};
+
+// Open modal
+function openModal(key) {
+  const d = modalData[key];
+  if(!d) return;
+  document.getElementById('modalImg').src = d.img;
+  document.getElementById('modalCat').textContent = d.cat;
+  document.getElementById('modalTitle').textContent = d.title;
+  document.getElementById('modalBody').innerHTML = d.body;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('modalBox').scrollTop = 0;
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('[data-modal]').forEach(el => {
+  el.addEventListener('click', () => openModal(el.dataset.modal));
+});
+document.getElementById('modalClose').addEventListener('click', closeModal);
+document.getElementById('modalOverlay').addEventListener('click', e => { if(e.target === e.currentTarget) closeModal(); });
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeModal(); });
+
+// Reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.06 });
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i % 3 * 0.1) + 's';
+  io.observe(el);
+});
+</script>
+</body>
+</html>
